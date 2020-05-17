@@ -101,6 +101,23 @@ void ledOn() {
 
 }
 
+void soilSensor() {
+  if (digitalRead(digitaInput) == HIGH)
+  {
+    Serial.println("Dry");
+  }
+  if (digitalRead(digitaInput) == LOW)
+  {
+    //digitalWrite(speaker, HIGH);
+    tone(speaker, 1000);
+    delay(500);
+    //digitalWrite(speaker, LOW);
+    noTone(speaker);
+
+    Serial.println("Wet");
+  }
+}
+
 void firstSensor() {
   digitalWrite(trigPin, LOW);
 
